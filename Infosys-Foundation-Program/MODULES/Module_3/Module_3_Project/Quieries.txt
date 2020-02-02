@@ -1,0 +1,44 @@
+
+--1)MAX likes
+
+SELECT photoid FROM (SELECT photoid,count(userid) as likes FROM likes GROUP BY(photoid) HAVING photoid in(SELECT photoid FROM photos WHERE userid =1)) WHERE likes =(SELECT MAX(counts) FROM (SELECT photoid,count(userid) as counts FROM likes GROUP BY(photoid) HAVING photoid in(SELECT photoid FROM photos WHERE userid =(SELECT userid FROM users WHERE username = 'asmith'))))
+
+--2)MIN likes
+
+
+SELECT photoid FROM (SELECT photoid,count(userid) as likes FROM likes GROUP BY(photoid) HAVING photoid in(SELECT photoid FROM photos WHERE userid =1)) WHERE likes =(SELECT MIN(counts) FROM (SELECT photoid,count(userid) as counts FROM likes GROUP BY(photoid) HAVING photoid in(SELECT photoid FROM photos WHERE userid =(SELECT userid FROM users WHERE username = 'asmith'))))
+
+--3)who liked most
+
+SELECT DISTINCT userid FROM (SELECT userid,count(photoid) as counts FROM (SELECT userid,photoid FROM likes WHERE photoid in(SELECT photoid FROM photos WHERE userid =1)) GROUP BY(userid))
+WHERE counts = (SELECT MAX(counts) FROM (SELECT userid,count(photoid) as counts FROM (SELECT userid,photoid FROM likes WHERE photoid in(SELECT photoid FROM photos WHERE userid =1)) GROUP BY(userid)))
+
+--4)music pictures
+
+
+SELECT photoid FROM photo_tag WHERE tagid in(SELECT tagid FROM tags WHERE tag ='Music')
+
+--5)popular tag
+
+SELECT tag FROM tags WHERE tagid in(SELECT tagid FROM (SELECT tagid,count(tagid)as counts FROM photo_tag GROUP BY(tagid)) WHERE counts =(SELECT MAX(counts) FROM(SELECT tagid,count(tagid) as counts FROM photo_tag GROUP BY(tagid))))
+
+--6)most liked user
+
+
+SELECT DISTINCT userid FROM photos WHERE photoid in (SELECT photoid FROM (SELECT photoid,count(userid)as counts FROM likes GROUP BY(photoid)) WHERE counts = (SELECT MAX(counts) FROM (SELECT photoid,count(userid)as counts FROM likes GROUP BY(photoid))))
+
+--7)old tagging
+
+	--a)
+	SELECT tagid FROM tags WHERE tag='Old'
+	
+	--b)
+	SELECT photoid FROM photos WHERE post_date < add_months(sysdate,-12*3)
+
+	--c)
+	insert into photo_tag values(<photoid>,<tagid>)
+
+
+--8)delete inactive user
+
+delete FROM users WHERE userid not in(SELECT DISTINCT userid FROM photos WHERE post_date > add_months(sysdate,-12*1))

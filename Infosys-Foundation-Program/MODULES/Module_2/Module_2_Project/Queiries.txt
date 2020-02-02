@@ -1,0 +1,60 @@
+--1)
+SELECT photoid FROM photos WHERE userid = 1;
+
+--2)
+SELECT NVL(caption,'no caption')AS captions FROM photo_caption WHERE photoid IN (SELECT photoid FROM photos WHERE userid =2);
+
+--3)
+SELECT photoid,userid FROM photos WHERE post_date > ADD_MONTHS(sysdate,-12*1);
+
+--4)
+SELECT photoid,counts FROM(SELECT photoid,COUNT(userid)AS counts FROM likes GROUP BY(photoid))WHERE counts=(SELECT MAX(counts)FROM (SELECT COUNT(userid)AS counts FROM likes GROUP BY(photoid)));
+
+--5)
+SELECT photoid,counts FROM (SELECT photoid,COUNT(userid)AS counts FROM likes GROUP BY(photoid))ORDER BY(counts) DESC;
+
+--6)
+SELECT photoid,counts FROM (SELECT photoid,COUNT(userid)AS counts FROM likes GROUP BY(photoid))WHERE counts > 3;
+
+--7)
+SELECT userid,counts FROM(SELECT userid,COUNT(photoid)AS counts FROM likes GROUP BY(userid))WHERE counts=(SELECT MAX(counts)FROM (SELECT COUNT(photoid)AS counts FROM likes GROUP BY(userid)));
+
+--8)
+SELECT day FROM(SELECT day,COUNT(day)AS dcount FROM (SELECT TO_CHAR(post_date, 'DAY') As day FROM photos)GROUP BY(day))WHERE dcount = (SELECT MAX(dcount)FROM (SELECT COUNT(day)AS dcount FROM (SELECT TO_CHAR(post_date, 'DAY') As day FROM photos)GROUP BY(day)));
+
+--9)
+SELECT SUM(pcount)AS photo_count FROM (SELECT day,COUNT(photoid)AS pcount FROM (SELECT photoid,TO_CHAR(post_date,'D') As day FROM photos)GROUP BY(day)) WHERE day IN(1,7);
+
+--10)
+SELECT photoid FROM (SELECT photoid,COUNT(tagid)AS id FROM photo_tag GROUP BY(photoid))WHERE id >3;
+
+--11)
+SELECT photoid FROM photo_caption  WHERE LOWER(caption) LIKE LOWER('%London%');
+
+--12)
+SELECT photoid,image_path FROM photos WHERE photoid IN (SELECT photoid AS pid FROM photos WHERE image_path LIKE 'D\:%');
+
+--13)
+SELECT EXTRACT(YEAR FROM post_date)AS year,photoid FROM photos WHERE userid = 3 AND post_date > ADD_MONTHS(sysdate,-12*5);
+
+--14)
+SELECT first_name,last_name FROM users WHERE email LIKE '%@gmail.com' OR email LIKE '%@yahoo.com';
+
+--15)
+INSERT INTO users (userid,username,email,password,first_name,last_name)
+VALUES(11,'asmi','asmi@rediffmail.com','asm','Asmita','Kale');
+
+--16)
+INSERT INTO likes(userid,photoid) VALUES (7,6);
+
+--17)
+DELETE FROM likes WHERE userid = 3;
+
+--18)
+UPDATE users SET last_name ='Kumar' WHERE userid =9;
+
+--19)
+UPDATE users SET email ='asmith@gmail.com' WHERE first_name='angella' AND last_name='smith';
+
+--20)
+INSERT INTO tags(tagid,tag) VALUES (12,'Literature');

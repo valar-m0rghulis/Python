@@ -1,7 +1,7 @@
 
 import pafy
 
-url = "https://www.youtube.com/watch?v=TtUz514rXKo"
+url = "https://www.youtube.com/watch?v=6rgePTwbfmg"
 
 #Creates a new Pafy object
 video = pafy.new(url)
@@ -29,3 +29,4 @@ print("Likes:",video.likes)             #The number of likes received for the vi
 print("Pulished on:",video.published)   #The upload date of the video (e.g., 2012-10-02 17:17:24) (str)
 print("Thumbnail:",video.thumb)         #The url of the video’s thumbnail image (str)
 print("Username:",video.username)       #The username of the uploader (str)
+

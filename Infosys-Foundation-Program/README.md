@@ -18,3 +18,8 @@
 * Chrome 55.0 or higher version
 * Internet Connection with best bandwidth to view youtube links used in FP5.0 
 
+***
+### III. IDE
+
+* ##### Eclipse
+  

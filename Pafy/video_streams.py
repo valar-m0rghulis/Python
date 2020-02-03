@@ -1,6 +1,6 @@
 import pafy
 
-url = "https://www.youtube.com/watch?v=TtUz514rXKo"
+url = "https://www.youtube.com/watch?v=6rgePTwbfmg"
 
 #Creates a new Pafy object
 v = pafy.new(url)
@@ -11,7 +11,7 @@ print(v)
 stream = v.getbest()
 print(stream)
 print("url:",stream.url)
-#stream.download(quiet=True)
+stream.download(quiet=True)
 
 video = v.getbestvideo()
 print(video)

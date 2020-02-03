@@ -1,7 +1,5 @@
 # Infosys Foundation Program
 
-***
-
 ### I. FP5.0 MODULES
 
 * Module-1 : [Programming Fundamentals](https://github.com/valar-m0rghulis/Python/tree/master/Infosys-Foundation-Program/MODULES/Module_1_Programming_Fundamentals)

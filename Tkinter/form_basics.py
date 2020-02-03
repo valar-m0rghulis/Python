@@ -35,7 +35,7 @@ window = Tk()
 window.geometry("500x600")
 window.title("Registration Form")
 
-image = Image.open("logo1.png")
+image = Image.open("images/logo1.png")
 photo = ImageTk.PhotoImage(image)
 imlab = Label(image=photo)
 imlab.pack()

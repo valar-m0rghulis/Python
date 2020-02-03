@@ -11,7 +11,7 @@ print(v)
 stream = v.getbest()
 print(stream)
 print("url:",stream.url)
-stream.download(quiet=True)
+stream.download(filepath="/Streams/" + v.title + "." + stream.extension, quiet=True)
 
 video = v.getbestvideo()
 print(video)

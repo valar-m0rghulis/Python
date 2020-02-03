@@ -9,7 +9,7 @@
 * Module-3 : [Python Database Fundamentals](https://github.com/valar-m0rghulis/Python/tree/master/Infosys-Foundation-Program/MODULES/Module_3_Python_DB_Integration)
 * Module-4 : [Object Oriented Concepts using Python]()
 * Module-5 : [Advanced Database Concepts]()
-* [Projects]()
+* [Projects](https://github.com/valar-m0rghulis/Python/tree/master/Infosys-Foundation-Program/Projects)
 
 ***
 

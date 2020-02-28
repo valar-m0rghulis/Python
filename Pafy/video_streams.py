@@ -1,6 +1,6 @@
 import pafy
 
-url = "https://www.youtube.com/watch?v=6rgePTwbfmg"
+url = "https://www.youtube.com/watch?v=nLwML2PagbY"
 
 #Creates a new Pafy object
 v = pafy.new(url)

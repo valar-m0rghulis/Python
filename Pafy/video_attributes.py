@@ -13,7 +13,7 @@ print(video)
 print("----------Video Information------------")
 
 print("Title:",video.title)             #The title of the video (str)
-print("URL:",url)
+print("URL:",url)                       #Video URL
 print("Duration:",video.duration)       #The duration of the stream (string formatted as HH:MM:SS)
 print("Rating:",video.rating)           #The rating of the video (0-5), (float)
 print("Author:",video.author)           #The author of the video (str)

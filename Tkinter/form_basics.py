@@ -27,7 +27,7 @@ def nextwin():
     newwin.title("Login")
     newwin.geometry("250x250")
     l1 = Label(newwin, text="Registration Completed!", relief="solid",font=("arial",12,"bold"))
-    l1.place(x=30,y=70)
+    l1.place(x=30, y=70)
     bt1 = Button(newwin, text="Demo",width=12, bg="brown", fg="white",command=quit)
     bt1.place(x=80, y=110)
 

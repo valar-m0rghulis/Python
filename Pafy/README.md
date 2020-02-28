@@ -7,11 +7,11 @@
 
 ### Videos used:
 
-https://www.youtube.com/watch?v=Wjrrgrvq1ew
+* https://www.youtube.com/watch?v=Wjrrgrvq1ew
 
-https://www.youtube.com/watch?v=TtUz514rXKo
+* https://www.youtube.com/watch?v=TtUz514rXKo
 
-https://www.youtube.com/watch?v=6rgePTwbfmg
+* https://www.youtube.com/watch?v=6rgePTwbfmg
 
 ***
 ### Installation
